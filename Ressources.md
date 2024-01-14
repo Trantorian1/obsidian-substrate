@@ -5,4 +5,7 @@
 # Blogs
 
 - [Zk-SNARKs in Substrate](https://brightinventions.pl/blog/zk-snarks-in-substrate-part-1/)
-- 
+
+# Documentation
+
+- [Substrate how-to](https://docs.substrate.io/reference/how-to-guides/)
