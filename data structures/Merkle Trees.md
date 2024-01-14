@@ -2,10 +2,13 @@
 
 *[wikipedia](https://en.wikipedia.org/wiki/Merkle_tree)*
 
-# Properties
+# Data authenticity
 
 Due to the way in which the hash of the *merkle node* is computed, this guarantees that any change in state, at *any* point in the merkle tree, will result in a change in the hash at the *merkle node*. Therefore, it is only necessary to verify the hash at the *merkle root* of the tree to verify the authenticity of it's data.
 
+> ℹ️ Note that due to the way in which it is created, each inner node in a Merkle tree is itself a Merkle root. This means that, starting at the top-most Merkle root, if any discrepancy in a hash is found, it is easy to find the source of these discrepancies by comparing the hashes of recursively smaller Merkle trees.
+
+---
 # Traversal
 
 While bottom-to-top traversal in a Merkle tree is trivial, consisting in the recursive hashing of child nodes until a single root node is reached, top-to-bottom traversal is less straightforwards.
@@ -16,6 +19,9 @@ While Merkle trees maintain the structure of binary trees, they do not however m
 
 > ⚠️ it should be clear by now that Merkle trees are optimized for guaranteeing data authenticity, not data retrieval. The advantages of binary and Merkle trees might be combined by having a balanced binary trees store the merkle paths to each value in the merkle tree for faster lookup while maintaining properties of data authenticity, though this will still be done at the cost of performance compared to traditional hashmaps. Another solution is to use [transparent hashing algorithms](https://docs.substrate.io/build/runtime-storage/#transparent-hashing-algorithms) in such a way that the merkle path to a value might be reverse-engineered during top-to-bottom traversal.
 
+---
 # Storing data
 
 Since Merkle trees only store hashes, identifying data such as string keys need to combined as part of the hash. This is typically done by reserving a part of the hash (for example the first 128 bits) to store the key or any other identifier, while the rest of the hash stores the actual value being queried.
+
+---
