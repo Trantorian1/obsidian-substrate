@@ -23,5 +23,3 @@ While Merkle trees maintain the structure of binary trees, they do not however m
 # Storing data
 
 Since Merkle trees only store hashes, identifying data such as string keys need to combined as part of the hash. This is typically done by reserving a part of the hash (for example the first 128 bits) to store the key or any other identifier, while the rest of the hash stores the actual value being queried.
-
----
