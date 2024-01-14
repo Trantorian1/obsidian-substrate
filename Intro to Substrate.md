@@ -8,7 +8,7 @@ Substrate guarantees it's flexibility through the use of it's FRAME libraries.
 Substrate splits it's architecture into two main components components:
 
 - **a core client**, which handles network and blockchain infrastructure events.
-- **a runtime**, responsible for handling the blockchain behavioral logic, such as transactions, votes...
+- **a runtime**, responsible for handling the blockchain mutation logic, such as transactions, votes...
 
 > 💡Substrate's runtime is compiled to [webassembly](https://webassembly.org/) and directly hosted on-chain. This allows for a single source of truth which can easily be updated, as an alternative to more traditional forks on a blockchain.
 
